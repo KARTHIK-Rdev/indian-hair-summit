@@ -1,16 +1,45 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/summit/Header";
+import Hero from "@/components/summit/Hero";
+import EventStrip from "@/components/summit/EventStrip";
+import About from "@/components/summit/About";
+import WhyAttend from "@/components/summit/WhyAttend";
+import WhoAttend from "@/components/summit/WhoAttend";
+import Experience from "@/components/summit/Experience";
+import CorePillars from "@/components/summit/CorePillars";
+import Tickets from "@/components/summit/Tickets";
+import Sponsorship from "@/components/summit/Sponsorship";
+import Networking from "@/components/summit/Networking";
+import Vision from "@/components/summit/Vision";
+import FAQ from "@/components/summit/FAQ";
+import RegistrationForm from "@/components/summit/RegistrationForm";
+import Footer from "@/components/summit/Footer";
+import Chatbot from "@/components/summit/Chatbot";
+import MobileCTA from "@/components/summit/MobileCTA";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="font-body">
+      <Header />
+      <Hero />
+      <EventStrip />
+      <About />
+      <WhyAttend />
+      <WhoAttend />
+      <Experience />
+      <CorePillars />
+      <div id="tickets">
+        <Tickets />
+      </div>
+      <Sponsorship />
+      <Networking />
+      <Vision />
+      <FAQ />
+      <RegistrationForm />
+      <Footer />
+      <Chatbot />
+      <MobileCTA />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;

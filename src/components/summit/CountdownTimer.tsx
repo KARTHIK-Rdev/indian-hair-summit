@@ -63,7 +63,7 @@ export default function CountdownTimer() {
   return (
     <section
       ref={ref}
-      className="relative z-10 -mt-14 sm:-mt-16 pb-12 sm:pb-16"
+      className="relative z-10 -mt-20 sm:-mt-24 pb-12 sm:pb-16"
     >
       <div
         className={`container mx-auto px-6 flex flex-col items-center transition-all duration-1000 ${

@@ -1,6 +1,8 @@
 import Header from "@/components/summit/Header";
 import Hero from "@/components/summit/Hero";
+import CountdownTimer from "@/components/summit/CountdownTimer";
 import EventStrip from "@/components/summit/EventStrip";
+import EntryPopup from "@/components/summit/EntryPopup";
 import About from "@/components/summit/About";
 import WhyAttend from "@/components/summit/WhyAttend";
 import WhoAttend from "@/components/summit/WhoAttend";
@@ -21,7 +23,9 @@ const Index = () => {
     <div className="font-body">
       <Header />
       <Hero />
+      <CountdownTimer />
       <EventStrip />
+      <EntryPopup />
       <About />
       <WhyAttend />
       <WhoAttend />

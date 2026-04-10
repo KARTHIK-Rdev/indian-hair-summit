@@ -48,7 +48,7 @@ export default function Experience() {
           </div>
 
           {/* List */}
-          <div className="space-y-4">
+          <div className="lg:col-span-2 space-y-4">
             {experiences.map((e, i) => (
               <div
                 key={i}

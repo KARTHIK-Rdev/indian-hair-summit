@@ -23,7 +23,9 @@ const Index = () => {
     <div className="font-body">
       <Header />
       <Hero />
+      <CountdownTimer />
       <EventStrip />
+      <EntryPopup />
       <About />
       <WhyAttend />
       <WhoAttend />

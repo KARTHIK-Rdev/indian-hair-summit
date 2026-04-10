@@ -36,19 +36,19 @@ export default function Experience() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-12 items-start max-w-6xl mx-auto">
           {/* Images */}
           <div
-            className={`grid grid-cols-2 gap-4 transition-all duration-700 delay-200 ${
+            className={`lg:col-span-1 flex flex-col gap-4 transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <img src={exp1} alt="Summit experience" className="w-full h-64 object-cover rounded-sm" />
-            <img src={exp2} alt="Summit experience" className="w-full h-64 object-cover rounded-sm mt-8" />
+            <img src={exp1} alt="Summit experience" className="w-full h-56 object-cover rounded-sm" />
+            <img src={exp2} alt="Summit experience" className="w-full h-56 object-cover rounded-sm" />
           </div>
 
           {/* List */}
-          <div className="space-y-4">
+          <div className="lg:col-span-2 space-y-4">
             {experiences.map((e, i) => (
               <div
                 key={i}

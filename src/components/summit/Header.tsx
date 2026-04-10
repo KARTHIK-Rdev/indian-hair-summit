@@ -18,59 +18,63 @@ export default function Header() {
     document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const shellClass = scrolled
+    ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
+    : "bg-foreground/70 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_-20px_rgba(0,0,0,0.8)]";
+
+  const brandClass = scrolled
+    ? "text-foreground"
+    : "text-primary-foreground drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)]";
+
+  const navClass = scrolled
+    ? "text-muted-foreground hover:text-foreground"
+    : "text-primary-foreground/90 hover:text-primary-foreground";
+
+  const infoClass = scrolled ? "text-muted-foreground" : "text-primary-foreground/80";
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-foreground/40 backdrop-blur-sm"
-      }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${shellClass}`}>
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
         <div className="flex-shrink-0">
-          <span className="font-display text-lg font-semibold tracking-wide text-foreground">
+          <span className={`font-display text-lg font-semibold tracking-wide transition-colors duration-300 ${brandClass}`}>
             The Indian Hair Economy Summit
           </span>
         </div>
 
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
               key={link}
               onClick={() => scrollTo(link)}
-              className="text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className={`text-sm tracking-widest uppercase transition-colors duration-300 ${navClass}`}
             >
               {link}
             </button>
           ))}
         </nav>
 
-        {/* Desktop Right */}
         <div className="hidden lg:flex items-center gap-6">
-          <div className="text-xs text-muted-foreground space-x-3">
+          <div className={`text-xs space-x-3 transition-colors duration-300 ${infoClass}`}>
             <span>📍 Bangalore | Delhi | Mumbai</span>
             <span>📅 Sep 2026</span>
           </div>
           <button
             onClick={() => scrollTo("register")}
-            className="bg-foreground text-background px-5 py-2.5 text-xs uppercase tracking-widest hover:bg-foreground/90 transition-all duration-300 hover:shadow-lg"
+            className="bg-primary-foreground text-foreground px-5 py-2.5 text-xs uppercase tracking-widest hover:bg-primary-foreground/90 transition-all duration-300 hover:shadow-lg"
           >
             Register Interest
           </button>
         </div>
 
-        {/* Mobile menu button */}
         <button
-          className="lg:hidden text-foreground"
+          className={`lg:hidden transition-colors duration-300 ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border animate-fade-in">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">

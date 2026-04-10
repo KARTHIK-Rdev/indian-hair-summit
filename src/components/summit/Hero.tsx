@@ -14,12 +14,42 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
+      {/* Background with slow zoom */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[12000ms] ease-out ${
+          loaded ? "scale-110" : "scale-100"
+        }`}
         style={{ backgroundImage: `url(${heroImg})` }}
       />
-      <div className="absolute inset-0 bg-foreground/60" />
+
+      {/* Cinematic gradient overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(15,15,15,0.55) 0%, rgba(15,15,15,0.25) 40%, rgba(15,15,15,0.45) 70%, rgba(15,15,15,0.85) 100%)",
+        }}
+      />
+
+      {/* Vignette effect */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 50%, rgba(15,15,15,0.6) 100%)",
+        }}
+      />
+
+      {/* Subtle gold light leak */}
+      <div
+        className={`absolute inset-0 pointer-events-none transition-opacity duration-[4000ms] ${
+          loaded ? "opacity-20" : "opacity-0"
+        }`}
+        style={{
+          background:
+            "radial-gradient(ellipse at 30% 40%, rgba(200,169,106,0.3) 0%, transparent 60%)",
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">

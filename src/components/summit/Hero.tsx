@@ -14,42 +14,14 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with slow zoom */}
+      {/* Static background */}
       <div
-        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[12000ms] ease-out ${
-          loaded ? "scale-110" : "scale-100"
-        }`}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImg})` }}
       />
 
-      {/* Cinematic gradient overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(15,15,15,0.55) 0%, rgba(15,15,15,0.25) 40%, rgba(15,15,15,0.45) 70%, rgba(15,15,15,0.85) 100%)",
-        }}
-      />
-
-      {/* Vignette effect */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 50%, rgba(15,15,15,0.6) 100%)",
-        }}
-      />
-
-      {/* Subtle gold light leak */}
-      <div
-        className={`absolute inset-0 pointer-events-none transition-opacity duration-[4000ms] ${
-          loaded ? "opacity-20" : "opacity-0"
-        }`}
-        style={{
-          background:
-            "radial-gradient(ellipse at 30% 40%, rgba(200,169,106,0.3) 0%, transparent 60%)",
-        }}
-      />
+      {/* Dark overlay 35% */}
+      <div className="absolute inset-0 bg-foreground/[0.35]" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -72,11 +44,11 @@ export default function Hero() {
         </h1>
 
         <p
-          className={`mt-8 text-base md:text-lg text-primary-foreground/80 max-w-2xl mx-auto leading-relaxed font-body transition-all duration-1000 delay-500 ${
+          className={`mt-8 text-base md:text-lg text-primary-foreground/80 max-w-xl mx-auto leading-relaxed font-body transition-all duration-1000 delay-500 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          A premier industry platform convening salon owners, salon chains, technicians, educators, brands, and service providers shaping the future of India's professional hair industry.
+          A premier platform shaping India's professional hair industry.
         </p>
 
         <div
@@ -86,7 +58,7 @@ export default function Hero() {
         >
           <button
             onClick={() => scrollTo("register")}
-            className="bg-primary-foreground text-foreground px-8 py-3.5 text-xs uppercase tracking-widest hover:scale-[1.02] hover:shadow-xl transition-all duration-300"
+            className="bg-primary-foreground text-foreground px-8 py-3.5 text-xs uppercase tracking-widest hover:scale-[1.02] transition-all duration-300"
           >
             Register Interest
           </button>

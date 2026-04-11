@@ -1,16 +1,14 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const audience = [
-  "Salon Owners & Co-founders",
-  "Salon Chain Operators",
-  "Hair Technicians & Stylists",
-  "Educators & Academy Heads",
-  "Product & Brand Companies",
-  "Distributors & Dealers",
-  "Equipment & Technology Providers",
-  "Beauty & Wellness Investors",
-  "Franchise Developers",
-  "Industry Media & Influencers",
+  { title: "Salon Owners", desc: "Independent and chain operators" },
+  { title: "Technicians & Stylists", desc: "Skilled professionals seeking growth" },
+  { title: "Educators & Academies", desc: "Training leaders and institutions" },
+  { title: "Brands & Products", desc: "Companies driving innovation" },
+  { title: "Distributors & Dealers", desc: "Supply chain professionals" },
+  { title: "Investors & Franchisors", desc: "Capital and expansion partners" },
+  { title: "Equipment Providers", desc: "Technology and tools" },
+  { title: "Media & Influencers", desc: "Industry voices and creators" },
 ];
 
 export default function WhoAttend() {
@@ -36,16 +34,17 @@ export default function WhoAttend() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
           {audience.map((a, i) => (
             <div
-              key={a}
-              className={`text-center p-6 border border-border bg-background rounded-sm hover:border-accent/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-500 ${
+              key={a.title}
+              className={`p-6 border border-border bg-background text-center hover:border-accent/40 transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: isVisible ? `${150 + i * 60}ms` : "0ms" }}
             >
-              <p className="text-xs font-medium text-foreground tracking-wide leading-snug">{a}</p>
+              <p className="text-sm font-medium text-foreground">{a.title}</p>
+              <p className="text-xs text-muted-foreground mt-1">{a.desc}</p>
             </div>
           ))}
         </div>

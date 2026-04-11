@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import popupImg from "@/assets/popup-portrait.jpg";
+import heroImg from "@/assets/hero-portrait.jpg";
 
 export default function EntryPopup() {
   const [show, setShow] = useState(false);
@@ -44,86 +44,49 @@ export default function EntryPopup() {
       }`}
       onClick={close}
     >
-      {/* Overlay — liquid glass blur */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "rgba(0,0,0,0.65)",
-          backdropFilter: "blur(20px) saturate(180%)",
-          WebkitBackdropFilter: "blur(20px) saturate(180%)",
-        }}
-      />
+      <div className="absolute inset-0 bg-foreground/60 backdrop-blur-sm" />
 
-      {/* Modal — liquid glass card */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`relative w-full max-w-md overflow-hidden transition-all duration-350 ${
+        className={`relative w-full max-w-md overflow-hidden bg-background transition-all duration-350 ${
           visible ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
-        style={{
-          borderRadius: "20px",
-          background:
-            "linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.65) 100%)",
-          backdropFilter: "blur(40px) saturate(200%)",
-          WebkitBackdropFilter: "blur(40px) saturate(200%)",
-          border: "1px solid rgba(255,255,255,0.45)",
-          boxShadow:
-            "0 24px 80px -12px rgba(0,0,0,0.25), 0 0 0 0.5px rgba(255,255,255,0.3) inset, 0 1px 3px rgba(255,255,255,0.2) inset",
-        }}
       >
-        {/* Close */}
         <button
           onClick={close}
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-          style={{
-            background: "rgba(0,0,0,0.15)",
-            backdropFilter: "blur(10px)",
-          }}
+          className="absolute top-3 right-3 z-10 w-8 h-8 bg-foreground/20 flex items-center justify-center hover:bg-foreground/30 transition-colors"
         >
-          <X size={16} className="text-foreground/70" />
+          <X size={16} className="text-primary-foreground" />
         </button>
 
-        {/* Image */}
         <div className="relative h-52 sm:h-60 overflow-hidden">
           <img
-            src={popupImg}
+            src={heroImg}
             alt="The Indian Hair Economy Summit"
             className="w-full h-full object-cover object-top"
           />
-          {/* Glass edge fade */}
-          <div
-            className="absolute inset-x-0 bottom-0 h-16"
-            style={{
-              background:
-                "linear-gradient(to top, rgba(255,255,255,0.85), transparent)",
-            }}
-          />
+          <div className="absolute inset-0 bg-foreground/30" />
         </div>
 
-        {/* Content */}
-        <div className="px-6 pb-7 pt-2 text-center">
+        <div className="px-6 pb-7 pt-5 text-center">
           <h2 className="font-display text-xl sm:text-2xl font-semibold text-foreground leading-tight">
             The Indian Hair
             <br />
             Economy Summit
           </h2>
           <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Workshop &nbsp;|&nbsp; Certification &nbsp;|&nbsp; Networking
-          </p>
-          <p className="mt-3 text-sm text-foreground/70 font-body">
             Registrations Now Open
           </p>
 
           <button
             onClick={handleCTA}
-            className="mt-5 w-full bg-foreground text-background py-3.5 text-xs uppercase tracking-widest hover:bg-foreground/90 hover:shadow-xl hover:scale-[1.01] transition-all duration-300"
-            style={{ borderRadius: "10px" }}
+            className="mt-5 w-full bg-foreground text-background py-3.5 text-xs uppercase tracking-widest hover:bg-foreground/90 transition-all duration-300"
           >
             Register Interest
           </button>
 
           <p className="mt-3 text-[10px] text-muted-foreground">
-            📍 Bangalore | Delhi | Mumbai &nbsp;·&nbsp; 📅 September 2026
+            Bangalore · Delhi · Mumbai &nbsp;·&nbsp; September 2026
           </p>
         </div>
       </div>

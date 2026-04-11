@@ -1,26 +1,12 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { BookOpen, Award, Users, TrendingUp, Lightbulb } from "lucide-react";
 
 const pillars = [
-  {
-    title: "Education & Skill Building",
-    desc: "Hands-on workshops, masterclasses, and sessions designed to elevate technical and business skills.",
-  },
-  {
-    title: "Certification & Credibility",
-    desc: "Industry-recognized certifications that set professionals apart and open new career pathways.",
-  },
-  {
-    title: "Networking & Community",
-    desc: "A powerful environment for building connections with peers, mentors, brands, and business leaders.",
-  },
-  {
-    title: "Innovation & Trends",
-    desc: "First look at emerging products, technologies, and trends redefining the hair economy.",
-  },
-  {
-    title: "Business Growth",
-    desc: "Strategies, tools, and insights to help salon owners and brands scale sustainably.",
-  },
+  { icon: BookOpen, title: "Education & Skill Building", desc: "Workshops and masterclasses to elevate technical and business skills." },
+  { icon: Award, title: "Certification & Credibility", desc: "Industry-recognized certifications that open new career pathways." },
+  { icon: Users, title: "Networking & Community", desc: "Connect with peers, mentors, brands, and business leaders." },
+  { icon: Lightbulb, title: "Innovation & Trends", desc: "First look at products and technologies redefining the industry." },
+  { icon: TrendingUp, title: "Business Growth", desc: "Strategies and tools to help salons and brands scale sustainably." },
 ];
 
 export default function CorePillars() {
@@ -47,19 +33,22 @@ export default function CorePillars() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {pillars.map((p, i) => (
-            <div
-              key={p.title}
-              className={`group p-8 border border-border rounded-sm bg-background hover:border-accent/40 hover:shadow-lg hover:scale-[1.02] transition-all duration-500 ${
-                i === 2 ? "md:col-span-2 lg:col-span-1" : ""
-              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: isVisible ? `${200 + i * 120}ms` : "0ms" }}
-            >
-              <div className="w-8 h-0.5 bg-accent mb-6 group-hover:w-12 transition-all duration-300" />
-              <h3 className="font-display text-lg font-semibold text-foreground mb-3">{p.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-            </div>
-          ))}
+          {pillars.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <div
+                key={p.title}
+                className={`group p-8 border border-border bg-background hover:border-accent/40 transition-all duration-500 ${
+                  i === 4 ? "md:col-span-2 lg:col-span-1" : ""
+                } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                style={{ transitionDelay: isVisible ? `${200 + i * 120}ms` : "0ms" }}
+              >
+                <Icon size={24} className="text-accent mb-5" strokeWidth={1.5} />
+                <h3 className="font-display text-lg font-semibold text-foreground mb-2">{p.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

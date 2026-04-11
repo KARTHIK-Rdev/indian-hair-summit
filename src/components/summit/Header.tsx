@@ -18,35 +18,33 @@ export default function Header() {
     document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const shellClass = scrolled
-    ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
-    : "bg-foreground/70 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_-20px_rgba(0,0,0,0.8)]";
-
-  const brandClass = scrolled
-    ? "text-foreground"
-    : "text-primary-foreground drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)]";
-
-  const navClass = scrolled
-    ? "text-muted-foreground hover:text-foreground"
-    : "text-primary-foreground/90 hover:text-primary-foreground";
-
-  const infoClass = scrolled ? "text-muted-foreground" : "text-primary-foreground/80";
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${shellClass}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
+          : "bg-foreground/60 backdrop-blur-lg"
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <div className="flex-shrink-0">
-          <span className={`font-display text-lg font-semibold tracking-wide transition-colors duration-300 ${brandClass}`}>
-            The Indian Hair Economy Summit
-          </span>
-        </div>
+        <span
+          className={`font-display text-lg font-semibold tracking-wide transition-colors duration-300 ${
+            scrolled ? "text-foreground" : "text-primary-foreground"
+          }`}
+        >
+          IHES
+        </span>
 
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
               key={link}
               onClick={() => scrollTo(link)}
-              className={`text-sm tracking-widest uppercase transition-colors duration-300 ${navClass}`}
+              className={`text-xs tracking-widest uppercase transition-colors duration-300 ${
+                scrolled
+                  ? "text-muted-foreground hover:text-foreground"
+                  : "text-primary-foreground/80 hover:text-primary-foreground"
+              }`}
             >
               {link}
             </button>
@@ -54,20 +52,29 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-6">
-          <div className={`text-xs space-x-3 transition-colors duration-300 ${infoClass}`}>
-            <span>📍 Bangalore | Delhi | Mumbai</span>
-            <span>📅 Sep 2026</span>
-          </div>
+          <span
+            className={`text-xs transition-colors duration-300 ${
+              scrolled ? "text-muted-foreground" : "text-primary-foreground/70"
+            }`}
+          >
+            Sep 2026
+          </span>
           <button
             onClick={() => scrollTo("register")}
-            className="bg-primary-foreground text-foreground px-5 py-2.5 text-xs uppercase tracking-widest hover:bg-primary-foreground/90 transition-all duration-300 hover:shadow-lg"
+            className={`px-5 py-2.5 text-xs uppercase tracking-widest transition-all duration-300 ${
+              scrolled
+                ? "bg-foreground text-background hover:bg-foreground/90"
+                : "bg-primary-foreground text-foreground hover:bg-primary-foreground/90"
+            }`}
           >
-            Register Interest
+            Register
           </button>
         </div>
 
         <button
-          className={`lg:hidden transition-colors duration-300 ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
+          className={`lg:hidden transition-colors duration-300 ${
+            scrolled ? "text-foreground" : "text-primary-foreground"
+          }`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -87,9 +94,6 @@ export default function Header() {
                 {link}
               </button>
             ))}
-            <div className="text-xs text-muted-foreground pt-2 border-t border-border">
-              📍 Bangalore | Delhi | Mumbai &nbsp;·&nbsp; 📅 Sep 2026
-            </div>
           </div>
         </div>
       )}

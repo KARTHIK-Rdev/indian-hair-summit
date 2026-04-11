@@ -27,13 +27,20 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <span
-          className={`font-display text-lg font-semibold tracking-wide transition-colors duration-300 ${
-            scrolled ? "text-foreground" : "text-primary-foreground"
-          }`}
-        >
-          IHES
-        </span>
+        <div className="flex items-center gap-3">
+          <img
+            src="/logo.png"
+            alt="Indian Hair Economy Summit Logo"
+            className="h-10 w-10 object-contain rounded-md"
+          />
+          <span
+            className={`font-display text-sm md:text-lg font-semibold tracking-wide transition-colors duration-300 ${
+              scrolled ? "text-foreground" : "text-primary-foreground"
+            }`}
+          >
+            Indian Hair Economy Summit
+          </span>
+        </div>
 
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (

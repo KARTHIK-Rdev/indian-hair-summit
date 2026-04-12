@@ -50,9 +50,35 @@ export default function RegistrationForm() {
   const update = (key: keyof FormData, value: string) =>
     setForm((prev) => ({ ...prev, [key]: value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    // TODO: Paste your Google Apps Script Web App URL here
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnqshfnUjlRkv4VZBG2cC6ha4OJrVBDa7UuDJaFcvssu79RcPO3-hoXDgWb-NEVkKurg/exec";
+
+    try {
+      const formData = new FormData();
+      Object.keys(form).forEach((key) => {
+        formData.append(key, form[key as keyof FormData]);
+      });
+
+      // Send to Google Sheets (using no-cors prevents CORS blocking from the browser)
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      });
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again or contact support.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -76,16 +102,14 @@ export default function RegistrationForm() {
       <div ref={ref} className="container mx-auto px-6 max-w-2xl">
         <div className="text-center mb-12">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
+            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"
+              }`}
           >
             Register
           </p>
           <h2
-            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
           >
             Register Your Interest
           </h2>
@@ -93,9 +117,8 @@ export default function RegistrationForm() {
 
         <form
           onSubmit={handleSubmit}
-          className={`space-y-5 transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`space-y-5 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <div className="grid md:grid-cols-2 gap-5">
             <FloatingInput label="Full Name" value={form.fullName} onChange={(v) => update("fullName", v)} required />
@@ -117,9 +140,10 @@ export default function RegistrationForm() {
 
           <button
             type="submit"
-            className="w-full bg-foreground text-background py-3.5 text-xs uppercase tracking-widest hover:bg-foreground/90 hover:scale-[1.01] transition-all duration-300"
+            disabled={isSubmitting}
+            className="w-full bg-foreground text-background py-3.5 text-xs uppercase tracking-widest hover:bg-foreground/90 hover:scale-[1.01] transition-all duration-300 disabled:opacity-70 disabled:hover:scale-100"
           >
-            Submit Registration
+            {isSubmitting ? "Registering..." : "Submit Registration"}
           </button>
         </form>
       </div>

@@ -2,7 +2,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const tickets = [
   {
-    name: "Standard Pass",
+    name: "General Pass",
     price: "₹3,000",
     features: [
       "Full-day summit access",
@@ -14,12 +14,11 @@ const tickets = [
     highlighted: false,
     link: "https://rzp.io/rzp/qBk5O6O",
   },
-
   {
-    name: "Professional Pass",
+    name: "Premium Pass",
     price: "₹15,000",
     features: [
-      "Everything in Standard",
+      "Everything in General",
       "Workshop access (choose 2)",
       "Certification program",
       "Priority seating",
@@ -32,7 +31,7 @@ const tickets = [
     name: "VIP Pass",
     price: "₹50,000",
     features: [
-      "Everything in Professional",
+      "Everything in Premium",
       "All workshops included",
       "VIP networking dinner",
       "1-on-1 mentor sessions",
@@ -51,14 +50,16 @@ export default function Tickets() {
       <div ref={ref} className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"
-              }`}
+            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
           >
             Tickets
           </p>
           <h2
-            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
+            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
           >
             Choose Your Experience
           </h2>
@@ -68,15 +69,16 @@ export default function Tickets() {
           {tickets.map((t, i) => (
             <div
               key={t.name}
-              className={`p-8 rounded-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${t.highlighted
-                  ? "border-2 border-accent bg-background shadow-lg"
-                  : "border border-border bg-background"
-                } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`glass-card p-8 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
+                t.highlighted
+                  ? "border-accent/40 ring-1 ring-accent/20 shadow-lg"
+                  : ""
+              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: isVisible ? `${200 + i * 150}ms` : "0ms" }}
             >
               {t.highlighted && (
                 <p className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-4">
-                  Most Popular
+                  ★ Most Popular
                 </p>
               )}
               <h3 className="font-display text-xl font-semibold text-foreground">{t.name}</h3>
@@ -90,29 +92,18 @@ export default function Tickets() {
                   </li>
                 ))}
               </ul>
-              {t.link ? (
-                <a
-                  href={t.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-8 w-full block text-center py-3 text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] ${t.highlighted
-                      ? "bg-foreground text-background hover:bg-foreground/90"
-                      : "border border-foreground text-foreground hover:bg-foreground hover:text-background"
-                    }`}
-                >
-                  Buy Ticket
-                </a>
-              ) : (
-                <button
-                  onClick={() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" })}
-                  className={`mt-8 w-full py-3 text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] ${t.highlighted
-                      ? "bg-foreground text-background hover:bg-foreground/90"
-                      : "border border-foreground text-foreground hover:bg-foreground hover:text-background"
-                    }`}
-                >
-                  Register Interest
-                </button>
-              )}
+              <a
+                href={t.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-8 w-full block text-center py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] ${
+                  t.highlighted
+                    ? "bg-foreground text-background hover:bg-foreground/90 hover:shadow-xl"
+                    : "border border-foreground/20 text-foreground hover:bg-foreground hover:text-background"
+                }`}
+              >
+                Register Now
+              </a>
             </div>
           ))}
         </div>

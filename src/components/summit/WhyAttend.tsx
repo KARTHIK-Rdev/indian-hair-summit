@@ -1,10 +1,10 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const reasons = [
-  "Stronger education from top industry professionals",
-  "Certification credibility that elevates careers",
-  "Business growth strategies for salons and brands",
-  "Industry access to key decision-makers and innovators",
+  "Stronger education",
+  "Certification credibility",
+  "Business growth",
+  "Industry access",
 ];
 
 export default function WhyAttend() {
@@ -30,17 +30,17 @@ export default function WhyAttend() {
           </h2>
         </div>
 
-        <div className="space-y-4 max-w-xl mx-auto">
+        <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
           {reasons.map((r, i) => (
             <div
               key={i}
-              className={`flex items-start gap-4 transition-all duration-500 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+              className={`glass-card p-6 rounded-xl text-center transition-all duration-500 hover:scale-[1.02] ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: isVisible ? `${200 + i * 100}ms` : "0ms" }}
             >
-              <span className="text-accent text-xs mt-1">◆</span>
-              <p className="text-muted-foreground leading-relaxed">{r}</p>
+              <span className="text-accent text-lg">◆</span>
+              <p className="text-sm text-foreground mt-2 font-medium">{r}</p>
             </div>
           ))}
         </div>

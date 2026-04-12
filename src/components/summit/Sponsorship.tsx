@@ -2,10 +2,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import handshakeImg from "@/assets/handshake.jpg";
 
 const benefits = [
-  "Premium brand visibility across all summit cities",
-  "Direct lead generation and buyer access",
-  "Strategic partnerships with industry leaders",
-  "Premium positioning as an industry authority",
+  "Brand visibility across all summit cities",
+  "Direct lead generation & buyer access",
+  "Strategic industry partnerships",
+  "Premium positioning as an authority",
 ];
 
 export default function Sponsorship() {
@@ -15,7 +15,6 @@ export default function Sponsorship() {
     <section id="sponsorship" className="py-24 md:py-32">
       <div ref={ref} className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-          {/* Image */}
           <div
             className={`transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -23,12 +22,11 @@ export default function Sponsorship() {
           >
             <img
               src={handshakeImg}
-              alt="Partnership and sponsorship"
-              className="w-full h-72 lg:h-[420px] object-cover"
+              alt="Partnership"
+              className="w-full h-72 lg:h-[420px] object-cover rounded-xl"
             />
           </div>
 
-          {/* Content */}
           <div>
             <p
               className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
@@ -42,15 +40,8 @@ export default function Sponsorship() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
-              Partner With the Summit
+              Partner With Us
             </h2>
-            <p
-              className={`text-muted-foreground mb-8 transition-all duration-700 delay-200 ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              Align your brand with India's most focused professional hair industry platform.
-            </p>
 
             <div className="space-y-3 mb-10">
               {benefits.map((b, i) => (
@@ -69,7 +60,7 @@ export default function Sponsorship() {
 
             <button
               onClick={() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-foreground text-background px-8 py-3.5 text-xs uppercase tracking-widest hover:bg-foreground/90 hover:scale-[1.02] transition-all duration-300"
+              className="bg-foreground text-background px-8 py-3.5 text-xs uppercase tracking-widest rounded-lg hover:bg-foreground/90 hover:scale-[1.02] transition-all duration-300"
             >
               Become a Sponsor
             </button>

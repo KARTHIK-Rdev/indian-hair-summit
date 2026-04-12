@@ -2,13 +2,13 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const audience = [
   { title: "Salon Owners", desc: "Independent and chain operators" },
-  { title: "Technicians & Stylists", desc: "Skilled professionals seeking growth" },
-  { title: "Educators & Academies", desc: "Training leaders and institutions" },
-  { title: "Brands & Products", desc: "Companies driving innovation" },
-  { title: "Distributors & Dealers", desc: "Supply chain professionals" },
-  { title: "Investors & Franchisors", desc: "Capital and expansion partners" },
-  { title: "Equipment Providers", desc: "Technology and tools" },
-  { title: "Media & Influencers", desc: "Industry voices and creators" },
+  { title: "Stylists", desc: "Skilled professionals" },
+  { title: "Educators", desc: "Training leaders" },
+  { title: "Brands", desc: "Product companies" },
+  { title: "Distributors", desc: "Supply chain" },
+  { title: "Investors", desc: "Capital partners" },
+  { title: "Equipment", desc: "Tech & tools" },
+  { title: "Media", desc: "Industry voices" },
 ];
 
 export default function WhoAttend() {
@@ -38,7 +38,7 @@ export default function WhoAttend() {
           {audience.map((a, i) => (
             <div
               key={a.title}
-              className={`p-6 border border-border bg-background text-center hover:border-accent/40 transition-all duration-500 ${
+              className={`glass-card p-6 rounded-xl text-center hover:scale-[1.02] transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: isVisible ? `${150 + i * 60}ms` : "0ms" }}

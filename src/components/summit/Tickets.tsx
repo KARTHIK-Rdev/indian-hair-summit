@@ -3,7 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const tickets = [
   {
     name: "Standard Pass",
-    price: "₹2,999",
+    price: "₹3,000",
     features: [
       "Full-day summit access",
       "All keynotes & panels",
@@ -12,10 +12,12 @@ const tickets = [
       "Lunch & refreshments",
     ],
     highlighted: false,
+    link: "https://rzp.io/rzp/qBk5O6O",
   },
+
   {
     name: "Professional Pass",
-    price: "₹5,999",
+    price: "₹15,000",
     features: [
       "Everything in Standard",
       "Workshop access (choose 2)",
@@ -24,10 +26,11 @@ const tickets = [
       "Exclusive lounge access",
     ],
     highlighted: true,
+    link: "https://rzp.io/rzp/wHwi3Cc",
   },
   {
     name: "VIP Pass",
-    price: "₹9,999",
+    price: "₹50,000",
     features: [
       "Everything in Professional",
       "All workshops included",
@@ -36,6 +39,7 @@ const tickets = [
       "Speaker meet & greet",
     ],
     highlighted: false,
+    link: "https://rzp.io/rzp/tbrqNNB",
   },
 ];
 
@@ -47,16 +51,14 @@ export default function Tickets() {
       <div ref={ref} className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
+            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"
+              }`}
           >
             Tickets
           </p>
           <h2
-            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
           >
             Choose Your Experience
           </h2>
@@ -66,11 +68,10 @@ export default function Tickets() {
           {tickets.map((t, i) => (
             <div
               key={t.name}
-              className={`p-8 rounded-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
-                t.highlighted
+              className={`p-8 rounded-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${t.highlighted
                   ? "border-2 border-accent bg-background shadow-lg"
                   : "border border-border bg-background"
-              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: isVisible ? `${200 + i * 150}ms` : "0ms" }}
             >
               {t.highlighted && (
@@ -89,16 +90,29 @@ export default function Tickets() {
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" })}
-                className={`mt-8 w-full py-3 text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] ${
-                  t.highlighted
-                    ? "bg-foreground text-background hover:bg-foreground/90"
-                    : "border border-foreground text-foreground hover:bg-foreground hover:text-background"
-                }`}
-              >
-                Register Interest
-              </button>
+              {t.link ? (
+                <a
+                  href={t.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-8 w-full block text-center py-3 text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] ${t.highlighted
+                      ? "bg-foreground text-background hover:bg-foreground/90"
+                      : "border border-foreground text-foreground hover:bg-foreground hover:text-background"
+                    }`}
+                >
+                  Buy Ticket
+                </a>
+              ) : (
+                <button
+                  onClick={() => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" })}
+                  className={`mt-8 w-full py-3 text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] ${t.highlighted
+                      ? "bg-foreground text-background hover:bg-foreground/90"
+                      : "border border-foreground text-foreground hover:bg-foreground hover:text-background"
+                    }`}
+                >
+                  Register Interest
+                </button>
+              )}
             </div>
           ))}
         </div>

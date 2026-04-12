@@ -7,6 +7,7 @@ import About from "@/components/summit/About";
 import WhyAttend from "@/components/summit/WhyAttend";
 import WhoAttend from "@/components/summit/WhoAttend";
 import Experience from "@/components/summit/Experience";
+import EventGallery from "@/components/summit/EventGallery";
 import CorePillars from "@/components/summit/CorePillars";
 import Tickets from "@/components/summit/Tickets";
 import Sponsorship from "@/components/summit/Sponsorship";
@@ -30,6 +31,7 @@ const Index = () => {
       <WhyAttend />
       <WhoAttend />
       <Experience />
+      <EventGallery />
       <CorePillars />
       <div id="tickets">
         <Tickets />

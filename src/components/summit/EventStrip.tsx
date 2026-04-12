@@ -1,10 +1,10 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const details = [
-  { icon: "📅", label: "Date", value: "September 2026" },
-  { icon: "🕒", label: "Time", value: "10:00 AM – 6:00 PM" },
-  { icon: "📍", label: "Locations", value: "Bangalore | Delhi | Mumbai" },
-  { icon: "🎯", label: "Format", value: "Workshop | Certification | Networking" },
+  { icon: "📍", label: "Bangalore", value: "9th June 2026" },
+  { icon: "📍", label: "Mumbai", value: "11 Aug 2026" },
+  { icon: "📍", label: "Delhi", value: "13 Oct 2026" },
+  { icon: "📍", label: "Kolkata", value: "8 Dec 2026" },
 ];
 
 export default function EventStrip() {

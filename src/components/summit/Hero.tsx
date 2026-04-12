@@ -19,7 +19,7 @@ const slides = [
   },
   {
     image: slide3,
-    heading: "Bangalore | Delhi | Mumbai",
+    heading: "Bangalore | Mumbai | Delhi | Kolkata",
     sub: "Connecting India's leading professionals",
   },
   {

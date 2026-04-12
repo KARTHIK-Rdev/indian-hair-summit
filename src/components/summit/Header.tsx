@@ -64,7 +64,7 @@ export default function Header() {
               scrolled ? "text-muted-foreground" : "text-primary-foreground/70"
             }`}
           >
-            Sep 2026
+            June - Dec 2026
           </span>
           <button
             onClick={() => scrollTo("register")}

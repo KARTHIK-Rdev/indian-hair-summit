@@ -22,8 +22,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-foreground/60 backdrop-blur-lg"
+          ? "bg-background/90 backdrop-blur-xl shadow-sm border-b border-border"
+          : "bg-white/5 backdrop-blur-xl border-b border-white/10"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
@@ -35,7 +35,7 @@ export default function Header() {
           />
           <span
             className={`font-display text-sm md:text-lg font-semibold tracking-wide transition-colors duration-300 ${
-              scrolled ? "text-foreground" : "text-primary-foreground"
+              scrolled ? "text-foreground" : "text-white"
             }`}
           >
             Indian Hair Economy Summit
@@ -50,7 +50,7 @@ export default function Header() {
               className={`text-xs tracking-widest uppercase transition-colors duration-300 ${
                 scrolled
                   ? "text-muted-foreground hover:text-foreground"
-                  : "text-primary-foreground/80 hover:text-primary-foreground"
+                  : "text-white/70 hover:text-white"
               }`}
             >
               {link}
@@ -59,28 +59,23 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-6">
-          <span
-            className={`text-xs transition-colors duration-300 ${
-              scrolled ? "text-muted-foreground" : "text-primary-foreground/70"
-            }`}
-          >
-            June - Dec 2026
-          </span>
-          <button
-            onClick={() => scrollTo("register")}
-            className={`px-5 py-2.5 text-xs uppercase tracking-widest transition-all duration-300 ${
+          <a
+            href="https://rzp.io/rzp/wHwi3Cc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`px-6 py-2.5 text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] ${
               scrolled
                 ? "bg-foreground text-background hover:bg-foreground/90"
-                : "bg-primary-foreground text-foreground hover:bg-primary-foreground/90"
+                : "glass-btn text-white hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             }`}
           >
             Register
-          </button>
+          </a>
         </div>
 
         <button
           className={`lg:hidden transition-colors duration-300 ${
-            scrolled ? "text-foreground" : "text-primary-foreground"
+            scrolled ? "text-foreground" : "text-white"
           }`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
@@ -90,7 +85,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border animate-fade-in">
+        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border animate-fade-in">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link) => (
               <button
@@ -101,6 +96,14 @@ export default function Header() {
                 {link}
               </button>
             ))}
+            <a
+              href="https://rzp.io/rzp/wHwi3Cc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 w-full text-center bg-foreground text-background py-3 text-xs uppercase tracking-widest"
+            >
+              Register Now
+            </a>
           </div>
         </div>
       )}

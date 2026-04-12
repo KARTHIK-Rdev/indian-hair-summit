@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import heroImg from "@/assets/hero-portrait.jpg";
+import heroImg from "@/assets/hero-slide-1.jpg";
 
 export default function EntryPopup() {
   const [show, setShow] = useState(false);
@@ -24,17 +24,6 @@ export default function EntryPopup() {
     }, 350);
   };
 
-  const handleCTA = () => {
-    close();
-    setTimeout(
-      () =>
-        document
-          .getElementById("register")
-          ?.scrollIntoView({ behavior: "smooth" }),
-      400
-    );
-  };
-
   if (!show) return null;
 
   return (
@@ -44,19 +33,19 @@ export default function EntryPopup() {
       }`}
       onClick={close}
     >
-      <div className="absolute inset-0 bg-foreground/60 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`relative w-full max-w-md overflow-hidden bg-background transition-all duration-350 ${
+        className={`relative w-full max-w-md overflow-hidden glass-card rounded-2xl transition-all duration-350 ${
           visible ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
       >
         <button
           onClick={close}
-          className="absolute top-3 right-3 z-10 w-8 h-8 bg-foreground/20 flex items-center justify-center hover:bg-foreground/30 transition-colors"
+          className="absolute top-3 right-3 z-10 w-8 h-8 bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black/50 transition-colors"
         >
-          <X size={16} className="text-primary-foreground" />
+          <X size={16} className="text-white" />
         </button>
 
         <div className="relative h-52 sm:h-60 overflow-hidden">
@@ -65,10 +54,10 @@ export default function EntryPopup() {
             alt="The Indian Hair Economy Summit"
             className="w-full h-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         </div>
 
-        <div className="px-6 pb-7 pt-5 text-center">
+        <div className="px-6 pb-7 pt-5 text-center bg-background">
           <h2 className="font-display text-xl sm:text-2xl font-semibold text-foreground leading-tight">
             The Indian Hair
             <br />
@@ -78,12 +67,14 @@ export default function EntryPopup() {
             Registrations Now Open
           </p>
 
-          <button
-            onClick={handleCTA}
-            className="mt-5 w-full bg-foreground text-background py-3.5 text-xs uppercase tracking-widest hover:bg-foreground/90 transition-all duration-300"
+          <a
+            href="https://rzp.io/rzp/wHwi3Cc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 w-full block bg-foreground text-background py-3.5 text-xs uppercase tracking-widest rounded-lg hover:bg-foreground/90 transition-all duration-300"
           >
-            Register Interest
-          </button>
+            Register Now
+          </a>
 
           <p className="mt-3 text-[10px] text-muted-foreground">
             Bangalore · Delhi · Mumbai &nbsp;·&nbsp; September 2026

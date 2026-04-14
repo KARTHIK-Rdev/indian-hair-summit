@@ -1,41 +1,71 @@
-import { useEffect, useState, useCallback } from "react";
-import slide1 from "@/assets/hero-slide-1.jpg";
-import slide2 from "@/assets/hero-slide-2.jpg";
-import slide3 from "@/assets/hero-slide-3.jpg";
-import slide4 from "@/assets/hero-slide-4.jpg";
-import slide5 from "@/assets/hero-slide-5.jpg";
-import slide6 from "@/assets/hero-slide-6.jpg";
+import { useEffect, useState, useCallback, useRef } from "react";
+import d1 from "@/assets/dynamic/d1.jpeg";
+import d2 from "@/assets/dynamic/d2.jpeg";
+import d3 from "@/assets/dynamic/d3.jpeg";
+import d4 from "@/assets/dynamic/d4.jpeg";
+import d5 from "@/assets/dynamic/d5.jpeg";
+import d6 from "@/assets/dynamic/d6.jpeg";
+import d7 from "@/assets/dynamic/d7.jpeg";
+import d8 from "@/assets/dynamic/d8.jpeg";
+import d9 from "@/assets/dynamic/d9.jpeg";
+import d10 from "@/assets/dynamic/d10.jpeg";
+import d11 from "@/assets/dynamic/d11.jpeg";
 
 const slides = [
   {
-    image: slide1,
+    image: d1,
     heading: "The Indian Hair\nEconomy Summit",
     sub: "Workshop  |  Certification  |  Networking",
   },
   {
-    image: slide2,
+    image: d2,
     heading: "Craft. Skill. Precision.",
     sub: "Where expertise meets opportunity",
   },
   {
-    image: slide3,
+    image: d3,
     heading: "Bangalore | Mumbai | Delhi | Kolkata",
     sub: "Connecting India's leading professionals",
   },
   {
-    image: slide4,
+    image: d4,
     heading: "A Growing Industry",
     sub: "Driven by innovation and demand",
   },
   {
-    image: slide5,
+    image: d5,
     heading: "Shaping the Future",
     sub: "Be part of the next phase",
   },
   {
-    image: slide6,
+    image: d6,
     heading: "Join the Industry Platform",
     cta: true,
+  },
+  {
+    image: d7,
+    heading: "Learn. Network. Grow.",
+    sub: "India's premier hair business summit",
+  },
+  {
+    image: d8,
+    heading: "Bangalore",
+    sub: "9th June 2026",
+  },
+  {
+    image: d9,
+    heading: "Mumbai",
+    sub: "11th August 2026",
+  },
+  {
+    image: d10,
+    heading: "Delhi",
+    sub: "13th October 2026",
+  },
+  {
+    image: d11,
+    heading: "Kolkata",
+    sub: "8th December 2026",
   },
 ];
 
@@ -47,6 +77,10 @@ export default function Hero() {
 
   const next = useCallback(() => {
     setCurrent((p) => (p + 1) % slides.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setCurrent((p) => (p - 1 + slides.length) % slides.length);
   }, []);
 
   useEffect(() => {
@@ -76,11 +110,12 @@ export default function Hero() {
 
   const parallaxOffset = Math.min(scrollY.current * 0.3, 150);
 
+  const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
   return (
     <section
       className="relative h-screen overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
       onTouchStart={(e) => { touchStart.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => {
         const diff = touchStart.current - e.changedTouches[0].clientX;
@@ -115,6 +150,26 @@ export default function Hero() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-foreground/[0.38] z-[2]" />
 
+      {/* Left / Right arrow buttons */}
+      <button
+        onClick={prev}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/25 border border-primary-foreground/20 transition-all duration-300 backdrop-blur-sm"
+        aria-label="Previous slide"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-primary-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/25 border border-primary-foreground/20 transition-all duration-300 backdrop-blur-sm"
+        aria-label="Next slide"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-primary-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
+
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
         <div className="max-w-3xl mx-auto">
@@ -135,7 +190,7 @@ export default function Hero() {
             </p>
           )}
 
-          {s.cta && (
+          {slides[current].cta && (
             <button
               onClick={() => scrollTo("register")}
               className="mt-10 bg-primary-foreground text-foreground px-10 py-4 text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform duration-300"
@@ -145,26 +200,21 @@ export default function Hero() {
           )}
         </div>
       </div>
-          )}
-    </div>
-      </div >
 
-    {/* Dots */ }
-    < div className = "absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2" >
-    {
-      slides.map((_, i) => (
-        <button
-          key={i}
-          onClick={() => setCurrent(i)}
-          className={`h-1.5 rounded-full transition-all duration-500 ${current === i
-              ? "w-8 bg-primary-foreground"
-              : "w-1.5 bg-primary-foreground/40 hover:bg-primary-foreground/60"
-            }`}
-          aria-label={`Go to slide ${i + 1}`}
-        />
-      ))
-    }
-      </div >
-    </section >
+      {/* Dots */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-1.5 rounded-full transition-all duration-500 ${current === i
+                ? "w-8 bg-primary-foreground"
+                : "w-1.5 bg-primary-foreground/40 hover:bg-primary-foreground/60"
+              }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </section>
   );
 }

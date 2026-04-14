@@ -1,6 +1,13 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import handshakeImg from "@/assets/handshake.jpg";
 import coffeeImg from "@/assets/coffee-networking.jpg";
 import groupImg from "@/assets/group-discussion.jpg";
+
+const cards = [
+  { label: "Partnerships", image: handshakeImg },
+  { label: "Growth", image: coffeeImg },
+  { label: "Collaboration", image: groupImg },
+];
 
 export default function Networking() {
   const { ref, isVisible } = useScrollAnimation();
@@ -9,52 +16,37 @@ export default function Networking() {
     <section className="py-24 md:py-32 bg-surface">
       <div ref={ref} className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
+          <p className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
             Networking
           </p>
-          <h2
-            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
+          <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
             Connections That Count
           </h2>
-          <p
-            className={`mt-4 text-muted-foreground max-w-xl mx-auto transition-all duration-700 delay-200 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            Structured sessions and curated meetups ensure you leave with valuable professional connections.
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-          <div
-            className={`overflow-hidden transition-all duration-700 delay-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <img
-              src={coffeeImg}
-              alt="Networking over coffee"
-              className="w-full h-72 md:h-80 object-cover"
-            />
-          </div>
-          <div
-            className={`overflow-hidden transition-all duration-700 delay-400 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <img
-              src={groupImg}
-              alt="Group discussion"
-              className="w-full h-72 md:h-80 object-cover"
-            />
-          </div>
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {cards.map((c, i) => (
+            <div
+              key={c.label}
+              className={`glass-card rounded-xl overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: isVisible ? `${200 + i * 120}ms` : "0ms" }}
+            >
+              <div className="aspect-[4/3] overflow-hidden relative">
+                <img
+                  src={c.image}
+                  alt={c.label}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] will-change-transform"
+                />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 liquid-glass-overlay" />
+              </div>
+              <div className="p-5 text-center">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground font-medium">
+                  {c.label}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

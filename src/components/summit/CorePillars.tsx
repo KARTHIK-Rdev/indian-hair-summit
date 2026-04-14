@@ -2,11 +2,11 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { BookOpen, Award, Users, TrendingUp, Lightbulb } from "lucide-react";
 
 const pillars = [
-  { icon: BookOpen, title: "Education & Skill Building", desc: "Workshops and masterclasses to elevate technical and business skills." },
-  { icon: Award, title: "Certification & Credibility", desc: "Industry-recognized certifications that open new career pathways." },
-  { icon: Users, title: "Networking & Community", desc: "Connect with peers, mentors, brands, and business leaders." },
-  { icon: Lightbulb, title: "Innovation & Trends", desc: "First look at products and technologies redefining the industry." },
-  { icon: TrendingUp, title: "Business Growth", desc: "Strategies and tools to help salons and brands scale sustainably." },
+  { icon: BookOpen, title: "Education" },
+  { icon: Award, title: "Certification" },
+  { icon: Users, title: "Networking" },
+  { icon: Lightbulb, title: "Innovation" },
+  { icon: TrendingUp, title: "Growth" },
 ];
 
 export default function CorePillars() {
@@ -32,20 +32,19 @@ export default function CorePillars() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
           {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
               <div
                 key={p.title}
-                className={`group p-8 border border-border bg-background hover:border-accent/40 transition-all duration-500 ${
-                  i === 4 ? "md:col-span-2 lg:col-span-1" : ""
-                } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                style={{ transitionDelay: isVisible ? `${200 + i * 120}ms` : "0ms" }}
+                className={`glass-card w-36 h-36 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-[1.05] transition-all duration-500 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+                style={{ transitionDelay: isVisible ? `${200 + i * 100}ms` : "0ms" }}
               >
-                <Icon size={24} className="text-accent mb-5" strokeWidth={1.5} />
-                <h3 className="font-display text-lg font-semibold text-foreground mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                <Icon size={28} className="text-accent" strokeWidth={1.5} />
+                <p className="text-xs uppercase tracking-widest text-foreground font-medium">{p.title}</p>
               </div>
             );
           })}

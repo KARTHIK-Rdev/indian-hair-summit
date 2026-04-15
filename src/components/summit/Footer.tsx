@@ -13,7 +13,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-4">Location</h4>
             <p className="text-sm text-white/70">Bangalore · Delhi · Mumbai</p>
-            <p className="text-sm text-white/70 mt-1">September 2026</p>
+            <p className="text-sm text-white/70 mt-1">2026</p>
           </div>
 
           <div>

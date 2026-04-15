@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import handshakeImg from "@/assets/handshake.jpg";
+import handshakeImg from "@/assets/event images/g6.jpeg";
 
 const benefits = [
   "Brand visibility across all summit cities",

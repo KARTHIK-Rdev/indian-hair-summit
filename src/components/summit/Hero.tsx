@@ -10,6 +10,10 @@ import d8 from "@/assets/dynamic/d8.jpeg";
 import d9 from "@/assets/dynamic/d9.jpeg";
 import d10 from "@/assets/dynamic/d10.jpeg";
 import d11 from "@/assets/dynamic/d11.jpeg";
+import d12 from "@/assets/dynamic/d12.jpeg";
+import d13 from "@/assets/dynamic/d13.jpeg";
+import d14 from "@/assets/dynamic/d14.jpeg";
+import d15 from "@/assets/dynamic/d15.jpeg";
 
 const slides = [
   {
@@ -66,6 +70,26 @@ const slides = [
     image: d11,
     heading: "Kolkata",
     sub: "8th December 2026",
+  },
+  {
+    image: d12,
+    heading: "Industry Leaders",
+    sub: "Learn from global experts",
+  },
+  {
+    image: d13,
+    heading: "Discover Innovation",
+    sub: "Latest trends and techniques",
+  },
+  {
+    image: d14,
+    heading: "Scale Your Business",
+    sub: "Exclusive insights for salon owners",
+  },
+  {
+    image: d15,
+    heading: "Be Part of the Future",
+    cta: true,
   },
 ];
 

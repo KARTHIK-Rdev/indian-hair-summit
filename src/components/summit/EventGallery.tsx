@@ -3,14 +3,9 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import img1 from "@/assets/event images/WhatsApp Image 2026-04-11 at 6.38.35 PM (1).jpeg";
-import img2 from "@/assets/event images/WhatsApp Image 2026-04-11 at 6.38.35 PM.jpeg";
-import img3 from "@/assets/event images/WhatsApp Image 2026-04-11 at 6.38.36 PM.jpeg";
-import img4 from "@/assets/event images/WhatsApp Image 2026-04-11 at 6.38.37 PM (1).jpeg";
-import img5 from "@/assets/event images/WhatsApp Image 2026-04-11 at 6.38.37 PM (2).jpeg";
-import img6 from "@/assets/event images/WhatsApp Image 2026-04-11 at 6.38.37 PM.jpeg";
-
-const images = [img1, img2, img3, img4, img5, img6];
+// Auto-import all .jpeg files from the event images directory via Vite
+const imageModules = import.meta.glob("@/assets/event images/*.jpeg", { eager: true, import: "default" });
+const images = Object.values(imageModules) as string[];
 
 export default function EventGallery() {
   const { ref, isVisible } = useScrollAnimation();

@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import handshakeImg from "@/assets/handshake.jpg";
+import handshakeImg from "@/assets/event images/g12.jpeg";
 import coffeeImg from "@/assets/coffee-networking.jpg";
 import groupImg from "@/assets/group-discussion.jpg";
 

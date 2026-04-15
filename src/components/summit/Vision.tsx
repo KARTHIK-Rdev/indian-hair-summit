@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import cityImg from "@/assets/hero-slide-4.jpg";
+import cityImg from "@/assets/event images/g2.jpeg";
 
 export default function Vision() {
   const { ref, isVisible } = useScrollAnimation();
@@ -12,9 +12,9 @@ export default function Vision() {
             <div className="relative overflow-hidden rounded-xl group">
               <img
                 src={cityImg}
-                alt="Bangalore cityscape"
+                alt="Event feature"
                 loading="lazy"
-                className="w-full h-80 lg:h-[420px] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] will-change-transform"
+                className="w-full h-auto object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03] will-change-transform"
               />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 liquid-glass-overlay" />
               <div className="absolute inset-0 rounded-xl transition-shadow duration-500 group-hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25)]" />

@@ -26,6 +26,7 @@ const Index = () => {
       <Hero />
       <CountdownTimer />
       <EventStrip />
+      <DPIITRecognition />
       <About />
       <WhyAttend />
       <WhoAttend />

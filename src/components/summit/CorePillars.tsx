@@ -38,13 +38,13 @@ export default function CorePillars() {
             return (
               <div
                 key={p.title}
-                className={`glass-card w-36 h-36 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-[1.05] transition-all duration-500 ${
+                className={`glass-card w-44 h-44 rounded-xl flex flex-col items-center justify-center gap-4 hover:scale-[1.05] transition-all duration-500 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: isVisible ? `${200 + i * 100}ms` : "0ms" }}
               >
-                <Icon size={28} className="text-accent" strokeWidth={1.5} />
-                <p className="text-xs uppercase tracking-widest text-foreground font-medium">{p.title}</p>
+                <Icon size={42} className="text-accent" strokeWidth={1.5} />
+                <p className="text-sm uppercase tracking-widest text-foreground font-medium">{p.title}</p>
               </div>
             );
           })}

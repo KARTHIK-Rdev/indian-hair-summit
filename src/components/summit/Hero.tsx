@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import d1 from "@/assets/dynamic/d1.jpeg";
-import d2 from "@/assets/dynamic/d2.jpeg";
 import d3 from "@/assets/dynamic/d3.jpeg";
 import d4 from "@/assets/dynamic/d4.jpeg";
 import d5 from "@/assets/dynamic/d5.jpeg";
@@ -20,11 +19,6 @@ const slides = [
     image: d1,
     heading: "The Indian Hair\nEconomy Summit",
     sub: "Workshop  |  Certification  |  Networking",
-  },
-  {
-    image: d2,
-    heading: "Craft. Skill. Precision.",
-    sub: "Where expertise meets opportunity",
   },
   {
     image: d3,

@@ -38,13 +38,13 @@ export default function WhoAttend() {
           {audience.map((a, i) => (
             <div
               key={a.title}
-              className={`glass-card p-6 rounded-xl text-center hover:scale-[1.02] transition-all duration-500 ${
+              className={`glass-card p-6 md:p-8 rounded-xl text-center hover:scale-[1.02] transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: isVisible ? `${150 + i * 60}ms` : "0ms" }}
             >
-              <p className="text-sm font-medium text-foreground">{a.title}</p>
-              <p className="text-xs text-muted-foreground mt-1">{a.desc}</p>
+              <p className="text-base md:text-lg font-medium text-foreground">{a.title}</p>
+              <p className="text-sm md:text-base text-muted-foreground mt-2">{a.desc}</p>
             </div>
           ))}
         </div>

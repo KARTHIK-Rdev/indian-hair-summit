@@ -7,6 +7,15 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const imageModules = import.meta.glob("@/assets/event images/*.jpeg", { eager: true, import: "default" });
 const images = Object.values(imageModules) as string[];
 
+// Sort images numerically based on their filenames (e.g., g1.jpeg, g2.jpeg, ..., g10.jpeg)
+images.sort((a, b) => {
+  const matchA = a.match(/g(\d+)\.jpeg$/);
+  const matchB = b.match(/g(\d+)\.jpeg$/);
+  const numA = matchA ? parseInt(matchA[1], 10) : 0;
+  const numB = matchB ? parseInt(matchB[1], 10) : 0;
+  return numA - numB;
+});
+
 export default function EventGallery() {
   const { ref, isVisible } = useScrollAnimation();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });

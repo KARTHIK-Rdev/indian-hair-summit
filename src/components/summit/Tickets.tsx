@@ -3,7 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const tickets = [
   {
     name: "General Pass",
-    price: "₹3,000",
+    price: "₹2,999",
     features: [
       "Full-day summit access",
       "All keynotes & panels",
@@ -16,7 +16,7 @@ const tickets = [
   },
   {
     name: "Premium Pass",
-    price: "₹15,000",
+    price: "₹14,999",
     features: [
       "Everything in General",
       "Workshop access (choose 2)",
@@ -29,7 +29,7 @@ const tickets = [
   },
   {
     name: "VIP Pass",
-    price: "₹50,000",
+    price: "₹49,999",
     features: [
       "Everything in Premium",
       "All workshops included",
@@ -50,16 +50,14 @@ export default function Tickets() {
       <div ref={ref} className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
+            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"
+              }`}
           >
             Tickets
           </p>
           <h2
-            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
           >
             Choose Your Experience
           </h2>
@@ -69,11 +67,10 @@ export default function Tickets() {
           {tickets.map((t, i) => (
             <div
               key={t.name}
-              className={`glass-card p-8 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
-                t.highlighted
+              className={`glass-card p-8 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${t.highlighted
                   ? "border-accent/40 ring-1 ring-accent/20 shadow-lg"
                   : ""
-              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: isVisible ? `${200 + i * 150}ms` : "0ms" }}
             >
               {t.highlighted && (
@@ -96,11 +93,10 @@ export default function Tickets() {
                 href={t.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 w-full block text-center py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] ${
-                  t.highlighted
+                className={`mt-8 w-full block text-center py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] ${t.highlighted
                     ? "bg-foreground text-background hover:bg-foreground/90 hover:shadow-xl"
                     : "border border-foreground/20 text-foreground hover:bg-foreground hover:text-background"
-                }`}
+                  }`}
               >
                 Register Now
               </a>

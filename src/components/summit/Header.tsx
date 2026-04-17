@@ -27,19 +27,12 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center">
           <img
-            src="/logo.png"
+            src="/Indian hair economy logo.png"
             alt="Indian Hair Economy Summit Logo"
-            className="h-10 w-10 object-contain rounded-md"
+            className="h-20 md:h-24 w-auto object-contain -my-6 md:-my-8"
           />
-          <span
-            className={`font-display text-sm md:text-lg font-semibold tracking-wide transition-colors duration-300 ${
-              scrolled ? "text-foreground" : "text-white"
-            }`}
-          >
-            Indian Hair Economy Summit
-          </span>
         </div>
 
         <nav className="hidden lg:flex items-center gap-8">

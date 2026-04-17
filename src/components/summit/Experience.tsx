@@ -2,10 +2,11 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import groupImg from "@/assets/group-discussion.jpg";
 import trainingImg from "@/assets/training-session.jpg";
 import coffeeImg from "@/assets/coffee-networking.jpg";
+import certImg from "@/assets/event images/g3.jpeg";
 
 const items = [
   { label: "Workshops", image: trainingImg },
-  { label: "Certification", image: groupImg },
+  { label: "Certification", image: certImg },
   { label: "Networking", image: coffeeImg },
 ];
 

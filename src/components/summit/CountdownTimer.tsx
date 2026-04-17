@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const TARGET = new Date("2026-09-15T10:00:00+05:30").getTime();
+const TARGET = new Date("2026-06-09T10:00:00+05:30").getTime();
 
 function calcTimeLeft() {
   const diff = Math.max(0, TARGET - Date.now());

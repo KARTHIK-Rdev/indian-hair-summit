@@ -6,9 +6,9 @@ import d5 from "@/assets/dynamic/d5.jpeg";
 import d6 from "@/assets/dynamic/d6.jpeg";
 import d7 from "@/assets/dynamic/d7.jpeg";
 import d8 from "@/assets/dynamic/d8.jpeg";
-import d9 from "@/assets/dynamic/d9.jpeg";
-import d10 from "@/assets/dynamic/d10.jpeg";
-import d11 from "@/assets/dynamic/d11.jpeg";
+import d9 from "@/assets/dynamic/d9.jpg";
+import d10 from "@/assets/dynamic/d10.jpg";
+import d11 from "@/assets/dynamic/d11.jpg";
 import d12 from "@/assets/dynamic/d12.jpeg";
 import d13 from "@/assets/dynamic/d13.jpeg";
 import d14 from "@/assets/dynamic/d14.jpeg";
@@ -226,8 +226,8 @@ export default function Hero() {
             key={i}
             onClick={() => setCurrent(i)}
             className={`h-1.5 rounded-full transition-all duration-500 ${current === i
-                ? "w-8 bg-primary-foreground"
-                : "w-1.5 bg-primary-foreground/40 hover:bg-primary-foreground/60"
+              ? "w-8 bg-primary-foreground"
+              : "w-1.5 bg-primary-foreground/40 hover:bg-primary-foreground/60"
               }`}
             aria-label={`Go to slide ${i + 1}`}
           />

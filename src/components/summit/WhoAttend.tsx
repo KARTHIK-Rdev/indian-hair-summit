@@ -1,14 +1,15 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Store, Scissors, Presentation, Building2, Truck, CircleDollarSign, Wrench, Mic } from "lucide-react";
 
 const audience = [
-  { title: "Salon Owners", desc: "Independent and chain operators" },
-  { title: "Stylists", desc: "Skilled professionals" },
-  { title: "Educators", desc: "Training leaders" },
-  { title: "Brands", desc: "Product companies" },
-  { title: "Distributors", desc: "Supply chain" },
-  { title: "Investors", desc: "Capital partners" },
-  { title: "Equipment", desc: "Tech & tools" },
-  { title: "Media", desc: "Industry voices" },
+  { title: "Salon Owners", desc: "Independent and chain operators", Icon: Store },
+  { title: "Stylists", desc: "Skilled professionals", Icon: Scissors },
+  { title: "Educators", desc: "Training leaders", Icon: Presentation },
+  { title: "Brands", desc: "Product companies", Icon: Building2 },
+  { title: "Distributors", desc: "Supply chain", Icon: Truck },
+  { title: "Investors", desc: "Capital partners", Icon: CircleDollarSign },
+  { title: "Equipment", desc: "Tech & tools", Icon: Wrench },
+  { title: "Media", desc: "Industry voices", Icon: Mic },
 ];
 
 export default function WhoAttend() {
@@ -34,17 +35,20 @@ export default function WhoAttend() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {audience.map((a, i) => (
             <div
               key={a.title}
-              className={`glass-card p-6 md:p-8 rounded-xl text-center hover:scale-[1.02] transition-all duration-500 ${
+              className={`bg-white border border-border/50 shadow-sm p-6 md:p-8 rounded-2xl flex flex-col items-center text-center hover:-translate-y-1 hover:shadow-md transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: isVisible ? `${150 + i * 60}ms` : "0ms" }}
             >
-              <p className="text-base md:text-lg font-medium text-foreground">{a.title}</p>
-              <p className="text-sm md:text-base text-muted-foreground mt-2">{a.desc}</p>
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#fdf5ed] flex items-center justify-center mb-4 md:mb-5">
+                <a.Icon className="w-8 h-8 md:w-10 md:h-10 text-foreground" strokeWidth={1.5} />
+              </div>
+              <p className="text-base md:text-lg font-bold text-foreground">{a.title}</p>
+              <p className="text-sm md:text-base text-muted-foreground mt-1.5">{a.desc}</p>
             </div>
           ))}
         </div>

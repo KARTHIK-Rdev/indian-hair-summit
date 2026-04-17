@@ -1,14 +1,11 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import eduIcon from "@/assets/icon/stronger education.png";
-import certIcon from "@/assets/icon/certification credibility.png";
-import growthIcon from "@/assets/icon/business growth.png";
-import accessIcon from "@/assets/icon/industry access.png";
+import { GraduationCap, Award, TrendingUp, Network } from "lucide-react";
 
 const reasons = [
-  { label: "Stronger education", icon: eduIcon },
-  { label: "Certification credibility", icon: certIcon },
-  { label: "Business growth", icon: growthIcon },
-  { label: "Industry access", icon: accessIcon },
+  { label: "Stronger education", Icon: GraduationCap },
+  { label: "Certification credibility", Icon: Award },
+  { label: "Business growth", Icon: TrendingUp },
+  { label: "Industry access", Icon: Network },
 ];
 
 export default function WhyAttend() {
@@ -38,13 +35,15 @@ export default function WhyAttend() {
           {reasons.map((r, i) => (
             <div
               key={i}
-              className={`glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center transition-all duration-500 hover:scale-[1.02] ${
+              className={`bg-white border border-border/50 shadow-sm p-6 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center hover:-translate-y-1 hover:shadow-md transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: isVisible ? `${200 + i * 100}ms` : "0ms" }}
             >
-              <img src={r.icon} alt={r.label} className="w-16 h-16 md:w-20 md:h-20 object-contain mb-4" />
-              <p className="text-sm text-foreground font-medium">{r.label}</p>
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#fdf5ed] flex items-center justify-center mb-4 md:mb-5">
+                <r.Icon className="w-8 h-8 md:w-10 md:h-10 text-foreground" strokeWidth={1.5} />
+              </div>
+              <p className="text-base md:text-lg font-bold text-foreground">{r.label}</p>
             </div>
           ))}
         </div>

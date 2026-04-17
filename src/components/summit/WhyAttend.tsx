@@ -1,10 +1,14 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import eduIcon from "@/assets/icon/stronger education.png";
+import certIcon from "@/assets/icon/certification credibility.png";
+import growthIcon from "@/assets/icon/business growth.png";
+import accessIcon from "@/assets/icon/industry access.png";
 
 const reasons = [
-  "Stronger education",
-  "Certification credibility",
-  "Business growth",
-  "Industry access",
+  { label: "Stronger education", icon: eduIcon },
+  { label: "Certification credibility", icon: certIcon },
+  { label: "Business growth", icon: growthIcon },
+  { label: "Industry access", icon: accessIcon },
 ];
 
 export default function WhyAttend() {
@@ -34,13 +38,13 @@ export default function WhyAttend() {
           {reasons.map((r, i) => (
             <div
               key={i}
-              className={`glass-card p-6 rounded-xl text-center transition-all duration-500 hover:scale-[1.02] ${
+              className={`glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center transition-all duration-500 hover:scale-[1.02] ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: isVisible ? `${200 + i * 100}ms` : "0ms" }}
             >
-              <span className="text-accent text-lg">◆</span>
-              <p className="text-sm text-foreground mt-2 font-medium">{r}</p>
+              <img src={r.icon} alt={r.label} className="w-16 h-16 md:w-20 md:h-20 object-contain mb-4" />
+              <p className="text-sm text-foreground font-medium">{r.label}</p>
             </div>
           ))}
         </div>

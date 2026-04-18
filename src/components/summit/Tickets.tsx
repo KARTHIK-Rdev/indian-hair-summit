@@ -5,19 +5,21 @@ const tickets = [
     name: "General Pass",
     price: "₹2,999",
     features: [
+      "Technician Certificate",
       "Full-day summit access",
       "All keynotes & panels",
       "Networking sessions",
       "Event materials & badge",
-      "Lunch & refreshments",
     ],
     highlighted: false,
-    link: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
+    bmsLink: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
+    townscriptLink: "https://www.townscript.com/e/indian-hair-economy-summit-2026-2nd-edition-011441",
   },
   {
     name: "Premium Pass",
     price: "₹14,999",
     features: [
+      "Salon Certificate",
       "Everything in General",
       "Workshop access (choose 2)",
       "Certification program",
@@ -25,12 +27,14 @@ const tickets = [
       "Exclusive lounge access",
     ],
     highlighted: true,
-    link: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
+    bmsLink: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
+    townscriptLink: "https://www.townscript.com/e/indian-hair-economy-summit-2026-2nd-edition-011441",
   },
   {
     name: "VIP Pass",
     price: "₹49,999",
     features: [
+      "Special Recognition",
       "Everything in Premium",
       "All workshops included",
       "VIP networking dinner",
@@ -38,7 +42,8 @@ const tickets = [
       "Speaker meet & greet",
     ],
     highlighted: false,
-    link: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
+    bmsLink: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
+    townscriptLink: "#",
   },
 ];
 
@@ -89,17 +94,32 @@ export default function Tickets() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={t.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-8 w-full block text-center py-3.5 rounded-lg text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] ${t.highlighted
-                    ? "bg-foreground text-background hover:bg-foreground/90 hover:shadow-xl"
-                    : "border border-foreground/20 text-foreground hover:bg-foreground hover:text-background"
-                  }`}
-              >
-                Register Now
-              </a>
+              
+              <div className="mt-8 flex flex-col gap-3">
+                <a
+                  href={t.bmsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full block text-center py-3.5 rounded-lg text-[10px] sm:text-[11px] uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] ${t.highlighted
+                      ? "bg-foreground text-background hover:bg-foreground/90 hover:shadow-xl"
+                      : "border border-foreground/20 text-foreground hover:bg-foreground hover:text-background"
+                    }`}
+                >
+                  Register via BookMyShow
+                </a>
+                <a
+                  href={t.townscriptLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full block text-center py-3.5 rounded-lg text-[10px] sm:text-[11px] uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] ${t.highlighted
+                      ? "border border-foreground/30 text-foreground hover:bg-foreground hover:text-background"
+                      : "border border-foreground/20 text-foreground hover:bg-foreground hover:text-background"
+                    }`}
+                >
+                  Register via Townscript
+                </a>
+              </div>
+
             </div>
           ))}
         </div>

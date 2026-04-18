@@ -12,7 +12,7 @@ export default function DepartmentMarquee() {
     <section className="py-8 md:py-12 bg-white overflow-hidden border-y border-border/10">
       <div className="text-center mb-6">
         <p className="text-xs uppercase tracking-[0.3em] font-medium text-muted-foreground">
-          Sponsored By
+          Supported By
         </p>
       </div>
       {/* 
@@ -24,10 +24,10 @@ export default function DepartmentMarquee() {
         {/* First Half */}
         <div className="flex w-1/2 justify-around">
           {imagesToDisplay.map((src, index) => (
-            <img 
-              key={`first-${index}`} 
-              src={src} 
-              alt={`Department logo`} 
+            <img
+              key={`first-${index}`}
+              src={src}
+              alt={`Department logo`}
               className="h-14 md:h-20 lg:h-24 w-auto object-contain mx-6 md:mx-10 mix-blend-multiply"
             />
           ))}
@@ -35,10 +35,10 @@ export default function DepartmentMarquee() {
         {/* Second Half (Exact Duplicate) */}
         <div className="flex w-1/2 justify-around">
           {imagesToDisplay.map((src, index) => (
-            <img 
-              key={`second-${index}`} 
-              src={src} 
-              alt={`Department logo`} 
+            <img
+              key={`second-${index}`}
+              src={src}
+              alt={`Department logo`}
               className="h-14 md:h-20 lg:h-24 w-auto object-contain mx-6 md:mx-10 mix-blend-multiply"
             />
           ))}

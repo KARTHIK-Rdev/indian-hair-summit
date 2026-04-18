@@ -53,7 +53,7 @@ export default function Header() {
 
         <div className="hidden lg:flex items-center gap-6">
           <a
-            href="https://rzp.io/rzp/wHwi3Cc"
+            href="https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939"
             target="_blank"
             rel="noopener noreferrer"
             className={`px-6 py-2.5 text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] ${
@@ -90,7 +90,7 @@ export default function Header() {
               </button>
             ))}
             <a
-              href="https://rzp.io/rzp/wHwi3Cc"
+              href="https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 w-full text-center bg-foreground text-background py-3 text-xs uppercase tracking-widest"

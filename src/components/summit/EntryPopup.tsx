@@ -68,7 +68,7 @@ export default function EntryPopup() {
           </p>
 
           <a
-            href="https://rzp.io/rzp/wHwi3Cc"
+            href="https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-5 w-full block bg-foreground text-background py-3.5 text-xs uppercase tracking-widest rounded-lg hover:bg-foreground/90 transition-all duration-300"

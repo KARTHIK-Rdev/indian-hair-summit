@@ -12,7 +12,7 @@ const tickets = [
       "Lunch & refreshments",
     ],
     highlighted: false,
-    link: "https://rzp.io/rzp/qBk5O6O",
+    link: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
   },
   {
     name: "Premium Pass",
@@ -25,7 +25,7 @@ const tickets = [
       "Exclusive lounge access",
     ],
     highlighted: true,
-    link: "https://rzp.io/rzp/wHwi3Cc",
+    link: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
   },
   {
     name: "VIP Pass",
@@ -38,7 +38,7 @@ const tickets = [
       "Speaker meet & greet",
     ],
     highlighted: false,
-    link: "https://rzp.io/rzp/tbrqNNB",
+    link: "https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939",
   },
 ];
 

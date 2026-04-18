@@ -18,7 +18,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-4">Contact</h4>
-            <p className="text-sm text-white/70">summit@emiliobeaufort.com</p>
+            <p className="text-sm text-white/70">summit@indianhairecomy.com</p>
             <p className="text-sm text-white/70 mt-1">8105511617</p>
           </div>
         </div>

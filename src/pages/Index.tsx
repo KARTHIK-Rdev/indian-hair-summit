@@ -3,6 +3,7 @@ import Hero from "@/components/summit/Hero";
 import CountdownTimer from "@/components/summit/CountdownTimer";
 import EventStrip from "@/components/summit/EventStrip";
 import DPIITRecognition from "@/components/summit/DPIITRecognition";
+import DepartmentMarquee from "@/components/summit/DepartmentMarquee";
 import About from "@/components/summit/About";
 import WhyAttend from "@/components/summit/WhyAttend";
 import WhoAttend from "@/components/summit/WhoAttend";
@@ -27,6 +28,7 @@ const Index = () => {
       <CountdownTimer />
       <EventStrip />
       <DPIITRecognition />
+      <DepartmentMarquee />
       <About />
       <WhyAttend />
       <WhoAttend />

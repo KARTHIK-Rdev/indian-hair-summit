@@ -40,10 +40,10 @@ export default function Header() {
             <button
               key={link}
               onClick={() => scrollTo(link)}
-              className={`text-xs tracking-widest uppercase transition-colors duration-300 ${
+              className={`text-xs font-bold tracking-widest uppercase transition-colors duration-300 ${
                 scrolled
-                  ? "text-muted-foreground hover:text-foreground"
-                  : "text-white/70 hover:text-white"
+                  ? "text-foreground hover:text-foreground/70"
+                  : "text-white/90 hover:text-white"
               }`}
             >
               {link}
@@ -84,7 +84,7 @@ export default function Header() {
               <button
                 key={link}
                 onClick={() => scrollTo(link)}
-                className="text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground text-left py-2"
+                className="text-sm font-bold tracking-widest uppercase text-foreground hover:text-foreground/70 text-left py-2"
               >
                 {link}
               </button>

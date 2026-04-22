@@ -35,13 +35,13 @@ export default function WhyAttend() {
           {reasons.map((r, i) => (
             <div
               key={i}
-              className={`bg-white border border-border/50 shadow-sm p-6 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center hover:-translate-y-1 hover:shadow-md transition-all duration-500 ${
+              className={`glass-card animated-border p-6 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-2 group ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: isVisible ? `${200 + i * 100}ms` : "0ms" }}
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#fdf5ed] flex items-center justify-center mb-4 md:mb-5">
-                <r.Icon className="w-8 h-8 md:w-10 md:h-10 text-foreground" strokeWidth={1.5} />
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#E3D5B8]/30 flex items-center justify-center mb-4 md:mb-5 transition-transform duration-500 group-hover:scale-110">
+                <r.Icon className="w-8 h-8 md:w-10 md:h-10 text-foreground transition-colors duration-500 group-hover:text-[#C4A97D]" strokeWidth={1.5} />
               </div>
               <p className="text-base md:text-lg font-bold text-foreground">{r.label}</p>
             </div>

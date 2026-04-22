@@ -19,10 +19,21 @@ import RegistrationForm from "@/components/summit/RegistrationForm";
 import Footer from "@/components/summit/Footer";
 import Chatbot from "@/components/summit/Chatbot";
 import MobileCTA from "@/components/summit/MobileCTA";
+import BackgroundCanvas from "@/components/summit/BackgroundCanvas";
 
 const Index = () => {
   return (
-    <div className="font-body">
+    <div className="font-body relative">
+      {/* Ambient animated background */}
+      <BackgroundCanvas />
+      {/* CSS orbs (always visible regardless of section bg) */}
+      <div className="bg-orb bg-orb-1" aria-hidden="true" />
+      <div className="bg-orb bg-orb-2" aria-hidden="true" />
+      <div className="bg-orb bg-orb-3" aria-hidden="true" />
+
+
+      {/* All page content sits above canvas */}
+      <div className="relative z-10">
       <Header />
       <Hero />
       <CountdownTimer />
@@ -46,6 +57,7 @@ const Index = () => {
       <Footer />
       <Chatbot />
       <MobileCTA />
+      </div>
     </div>
   );
 };

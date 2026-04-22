@@ -11,7 +11,7 @@ export default function DepartmentMarquee() {
   return (
     <section className="py-8 md:py-12 bg-white overflow-hidden border-y border-border/10">
       <div className="text-center mb-6">
-        <p className="text-xs uppercase tracking-[0.3em] font-medium text-muted-foreground">
+        <p className="text-sm uppercase tracking-[0.4em] font-bold font-medium text-muted-foreground">
           Supported By
         </p>
       </div>

@@ -16,7 +16,7 @@ export default function WhyAttend() {
       <div ref={ref} className="container mx-auto px-6 max-w-3xl">
         <div className="text-center mb-12">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
+            className={`text-sm uppercase tracking-[0.4em] font-bold text-accent mb-4 transition-all duration-700 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >

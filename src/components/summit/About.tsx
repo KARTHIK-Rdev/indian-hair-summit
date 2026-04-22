@@ -9,7 +9,7 @@ export default function About() {
       <div ref={ref} className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <div>
-            <p className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+            <p className={`text-sm uppercase tracking-[0.4em] font-bold text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
               About
             </p>
             <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground leading-tight transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>

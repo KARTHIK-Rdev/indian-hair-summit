@@ -55,13 +55,13 @@ export default function Tickets() {
       <div ref={ref} className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"
+            className={`text-sm uppercase tracking-[0.4em] font-bold text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"
               }`}
           >
             Tickets
           </p>
           <h2
-            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`font-display text-4xl md:text-5xl font-bold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
           >
             Choose Your Experience
@@ -72,38 +72,40 @@ export default function Tickets() {
           {tickets.map((t, i) => (
             <div
               key={t.name}
-              className={`glass-card p-8 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${t.highlighted
+              className={`glass-card p-8 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col ${
+                t.highlighted
                   ? "border-accent/40 ring-1 ring-accent/20 shadow-lg"
                   : ""
-                } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: isVisible ? `${200 + i * 150}ms` : "0ms" }}
             >
               {t.highlighted && (
-                <p className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-4">
+                <p className="text-xs uppercase tracking-widest text-accent font-bold mb-4">
                   ★ Most Popular
                 </p>
               )}
-              <h3 className="font-display text-xl font-semibold text-foreground">{t.name}</h3>
-              <p className="text-3xl font-display font-bold text-foreground mt-2">{t.price}</p>
-              <p className="text-xs text-muted-foreground mt-1">per person</p>
-              <ul className="mt-6 space-y-3">
+              <h3 className="font-display text-2xl font-bold text-foreground">{t.name}</h3>
+              <p className="text-4xl font-display font-bold text-foreground mt-2">{t.price}</p>
+              <p className="text-sm text-muted-foreground mt-1">per person</p>
+              <ul className="mt-6 space-y-3 flex-1">
                 {t.features.map((f) => (
                   <li key={f} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <span className="text-accent text-xs mt-0.5">✓</span>
+                    <span className="text-accent text-sm mt-0.5">✓</span>
                     {f}
                   </li>
                 ))}
               </ul>
               
-              <div className="mt-8 flex flex-col gap-3">
+              <div className="mt-8 flex flex-col gap-3 mt-auto pt-8">
                 <a
                   href={t.bmsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full block text-center py-3.5 rounded-lg text-[10px] sm:text-[11px] uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] ${t.highlighted
+                  className={`w-full block text-center py-3.5 rounded-lg text-xs uppercase tracking-widest font-semibold transition-all duration-300 hover:scale-[1.03] ${
+                    t.highlighted
                       ? "bg-foreground text-background hover:bg-foreground/90 hover:shadow-xl"
                       : "border border-foreground/20 text-foreground hover:bg-foreground hover:text-background"
-                    }`}
+                  }`}
                 >
                   Register via BookMyShow
                 </a>
@@ -111,10 +113,11 @@ export default function Tickets() {
                   href={t.townscriptLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full block text-center py-3.5 rounded-lg text-[10px] sm:text-[11px] uppercase tracking-widest transition-all duration-300 hover:scale-[1.03] ${t.highlighted
+                  className={`w-full block text-center py-3.5 rounded-lg text-xs uppercase tracking-widest font-semibold transition-all duration-300 hover:scale-[1.03] ${
+                    t.highlighted
                       ? "border border-foreground/30 text-foreground hover:bg-foreground hover:text-background"
                       : "border border-foreground/20 text-foreground hover:bg-foreground hover:text-background"
-                    }`}
+                  }`}
                 >
                   Register via Townscript
                 </a>

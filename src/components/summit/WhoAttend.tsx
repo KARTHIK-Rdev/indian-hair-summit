@@ -20,20 +20,23 @@ export default function WhoAttend() {
       <div ref={ref} className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
+            className={`text-sm md:text-base uppercase tracking-[0.45em] font-bold text-accent mb-3 transition-all duration-700 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
             Who Should Attend
           </p>
+          {/* Decorative divider */}
+          <div className={`mx-auto mb-5 h-[2px] w-12 bg-accent rounded-full transition-all duration-700 delay-75 ${isVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}`} />
           <h2
-            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${
+            className={`font-display text-5xl md:text-6xl font-bold text-foreground transition-all duration-700 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
             Built for Industry Leaders
           </h2>
         </div>
+
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {audience.map((a, i) => (

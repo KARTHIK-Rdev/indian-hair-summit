@@ -63,7 +63,7 @@ export default function EntryPopup() {
             <br />
             Economy Summit
           </h2>
-          <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="mt-2 text-sm uppercase tracking-[0.4em] font-bold text-muted-foreground">
             Registrations Now Open
           </p>
 

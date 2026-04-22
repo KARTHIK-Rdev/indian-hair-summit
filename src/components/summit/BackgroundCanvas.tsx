@@ -48,21 +48,21 @@ export default function BackgroundCanvas() {
     /* ── Orbs (slow drifting blobs) ─────────────────────── */
     const orbs: Orb[] = Array.from({ length: 14 }, () => ({
       x: rand(0, W()), y: rand(0, H()),
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      radius: rand(90, 280),
-      alpha: rand(0.04, 0.10),
+      vx: (Math.random() - 0.5) * 0.45,
+      vy: (Math.random() - 0.5) * 0.45,
+      radius: rand(150, 350),
+      alpha: rand(0.30, 0.50),
       alphaDir: Math.random() > 0.5 ? 1 : -1,
       color: ORB_COLORS[Math.floor(Math.random() * ORB_COLORS.length)],
     }));
 
     /* ── Particles (floating dust) ──────────────────────── */
-    const particles: Particle[] = Array.from({ length: 70 }, () => ({
+    const particles: Particle[] = Array.from({ length: 80 }, () => ({
       x: rand(0, W()), y: rand(0, H()),
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      radius: rand(0.8, 2.5),
-      alpha: rand(0.08, 0.3),
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      radius: rand(1.5, 3.5),
+      alpha: rand(0.25, 0.6),
     }));
 
     /* ── Shooting stars ─────────────────────────────────── */
@@ -115,8 +115,8 @@ export default function BackgroundCanvas() {
         if (orb.y < -orb.radius) orb.y = H() + orb.radius;
         if (orb.y > H() + orb.radius) orb.y = -orb.radius;
 
-        orb.alpha += orb.alphaDir * 0.0003;
-        if (orb.alpha > 0.14 || orb.alpha < 0.025) orb.alphaDir *= -1;
+        orb.alpha += orb.alphaDir * 0.0004;
+        if (orb.alpha > 0.55 || orb.alpha < 0.25) orb.alphaDir *= -1;
 
         const g = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.radius);
         g.addColorStop(0, `${orb.color}${orb.alpha.toFixed(3)})`);
@@ -128,16 +128,16 @@ export default function BackgroundCanvas() {
       });
 
       /* --- Constellation lines between nearby particles --- */
-      const LINK_DIST = 120;
-      ctx.lineWidth = 0.5;
+      const LINK_DIST = 140;
+      ctx.lineWidth = 0.8;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < LINK_DIST) {
-            const lineAlpha = (1 - dist / LINK_DIST) * 0.08;
-            ctx.strokeStyle = `rgba(196,169,125,${lineAlpha})`;
+            const lineAlpha = (1 - dist / LINK_DIST) * 0.22;
+            ctx.strokeStyle = `rgba(180,145,90,${lineAlpha})`;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -156,7 +156,7 @@ export default function BackgroundCanvas() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(196,169,125,${p.alpha})`;
+        ctx.fillStyle = `rgba(160,125,75,${p.alpha})`;
         ctx.fill();
       });
 
@@ -191,14 +191,14 @@ export default function BackgroundCanvas() {
       /* --- Pulse rings --- */
       for (let i = rings.length - 1; i >= 0; i--) {
         const r = rings[i];
-        r.radius += 0.7;
-        r.alpha  -= 0.0025;
+        r.radius += 1.2;
+        r.alpha  -= 0.002;
         if (r.alpha <= 0) { rings.splice(i, 1); continue; }
 
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(196,169,125,${r.alpha.toFixed(3)})`;
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = `rgba(160,120,65,${r.alpha.toFixed(3)})`;
+        ctx.lineWidth = 1.5;
         ctx.stroke();
       }
 
@@ -217,8 +217,8 @@ export default function BackgroundCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-0"
-      style={{ opacity: 0.85 }}
+      className="fixed inset-0 w-full h-full pointer-events-none z-0 border-0 border-none outline-none"
+      style={{ opacity: 1, border: 'none', outline: 'none' }}
       aria-hidden="true"
     />
   );

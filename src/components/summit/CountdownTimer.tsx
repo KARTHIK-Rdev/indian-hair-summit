@@ -70,7 +70,7 @@ export default function CountdownTimer() {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 font-body">
+        <p className="text-sm uppercase tracking-[0.4em] font-bold text-muted-foreground mb-6 font-body">
           Event Starts In
         </p>
 

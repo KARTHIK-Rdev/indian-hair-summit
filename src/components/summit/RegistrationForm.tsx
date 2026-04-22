@@ -102,13 +102,13 @@ export default function RegistrationForm() {
       <div ref={ref} className="container mx-auto px-6 max-w-2xl">
         <div className="text-center mb-12">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"
+            className={`text-sm uppercase tracking-[0.4em] font-bold text-accent mb-4 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"
               }`}
           >
             Register
           </p>
           <h2
-            className={`font-display text-3xl md:text-4xl font-semibold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`font-display text-4xl md:text-5xl font-bold text-foreground transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
           >
             Register Your Interest
@@ -141,7 +141,7 @@ export default function RegistrationForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-foreground text-background py-3.5 text-xs uppercase tracking-widest hover:bg-foreground/90 hover:scale-[1.01] transition-all duration-300 disabled:opacity-70 disabled:hover:scale-100"
+            className="w-full bg-foreground text-background py-4 text-sm uppercase tracking-widest font-semibold hover:bg-foreground/90 hover:scale-[1.01] transition-all duration-300 disabled:opacity-70 disabled:hover:scale-100"
           >
             {isSubmitting ? "Registering..." : "Submit Registration"}
           </button>
@@ -172,9 +172,9 @@ function FloatingInput({
         onChange={(e) => onChange(e.target.value)}
         required={required}
         placeholder=" "
-        className="peer w-full border border-border bg-transparent px-4 pt-5 pb-2 text-sm text-foreground rounded-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all duration-300"
+        className="peer w-full border border-border bg-transparent px-4 pt-7 pb-2.5 text-base text-foreground rounded-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all duration-300"
       />
-      <label className="absolute left-4 top-1/2 -translate-y-1/2 text-xs text-muted-foreground transition-all duration-300 pointer-events-none peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-[10px] peer-focus:text-accent peer-[:not(:placeholder-shown)]:top-2.5 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-[10px]">
+      <label className="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-300 pointer-events-none peer-focus:top-3 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:top-3 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-xs">
         {label}
       </label>
     </div>
@@ -197,7 +197,7 @@ function FloatingSelect({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="peer w-full border border-border bg-transparent px-4 pt-5 pb-2 text-sm text-foreground rounded-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all duration-300 appearance-none"
+        className="peer w-full border border-border bg-transparent px-4 pt-7 pb-2.5 text-base text-foreground rounded-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all duration-300 appearance-none"
       >
         <option value="" disabled />
         {options.map((o) => (
@@ -206,7 +206,7 @@ function FloatingSelect({
           </option>
         ))}
       </select>
-      <label className="absolute left-4 top-2.5 text-[10px] text-muted-foreground pointer-events-none">
+      <label className="absolute left-4 top-3 text-xs text-muted-foreground pointer-events-none font-medium">
         {label}
       </label>
     </div>
@@ -229,9 +229,9 @@ function FloatingTextarea({
         onChange={(e) => onChange(e.target.value)}
         placeholder=" "
         rows={3}
-        className="peer w-full border border-border bg-transparent px-4 pt-5 pb-2 text-sm text-foreground rounded-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all duration-300 resize-none"
+        className="peer w-full border border-border bg-transparent px-4 pt-7 pb-2.5 text-base text-foreground rounded-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all duration-300 resize-none"
       />
-      <label className="absolute left-4 top-1/2 -translate-y-1/2 text-xs text-muted-foreground transition-all duration-300 pointer-events-none peer-focus:top-2.5 peer-focus:translate-y-0 peer-focus:text-[10px] peer-focus:text-accent peer-[:not(:placeholder-shown)]:top-2.5 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-[10px]">
+      <label className="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-muted-foreground transition-all duration-300 pointer-events-none peer-focus:top-3 peer-focus:translate-y-0 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:top-3 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-xs">
         {label}
       </label>
     </div>

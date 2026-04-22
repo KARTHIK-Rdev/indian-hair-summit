@@ -17,7 +17,7 @@ export default function CorePillars() {
       <div ref={ref} className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p
-            className={`text-xs uppercase tracking-[0.3em] text-accent mb-4 transition-all duration-700 ${
+            className={`text-sm uppercase tracking-[0.4em] font-bold text-accent mb-4 transition-all duration-700 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >

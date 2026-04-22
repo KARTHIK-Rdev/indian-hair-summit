@@ -24,8 +24,8 @@
     --muted: 0 0% 96%;
     --muted-foreground: 228 25% 30%;
 
-    --accent: 37 45% 60%;
-    --accent-foreground: 0 0% 6%;
+    --accent: 33 55% 38%;
+    --accent-foreground: 33 30% 96%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -71,6 +71,10 @@
   * {
     @apply border-border;
   }
+  canvas {
+    border: none !important;
+    outline: none !important;
+  }
 
   html {
     scroll-behavior: smooth;
@@ -97,68 +101,64 @@ section {
 .bg-background { background-color: transparent !important; }
 .bg-white { background-color: rgba(255,255,255,0.35) !important; }
 /* ════════════════════════════════════════════════════════
-   ANIMATED BACKGROUND
+   ANIMATED BACKGROUND KEYFRAMES
    ════════════════════════════════════════════════════════ */
 
-@keyframes orb1-move {
-  0%   { transform: translate(0px,   0px)   scale(1);    }
-  33%  { transform: translate(80px, -60px)  scale(1.15); }
-  66%  { transform: translate(-40px, 80px)  scale(0.9);  }
-  100% { transform: translate(0px,   0px)   scale(1);    }
+/* Blob drift animations */
+@keyframes orbDrift1 {
+  0%   { transform: translate(0px,    0px)   scale(1);    }
+  33%  { transform: translate(120px, -80px)  scale(1.15); }
+  66%  { transform: translate(-60px,  100px) scale(0.9);  }
+  100% { transform: translate(0px,    0px)   scale(1);    }
 }
-@keyframes orb2-move {
-  0%   { transform: translate(0px,    0px)  scale(1);    }
-  33%  { transform: translate(-70px, 50px)  scale(1.1);  }
-  66%  { transform: translate(60px, -80px)  scale(0.95); }
-  100% { transform: translate(0px,    0px)  scale(1);    }
+@keyframes orbDrift2 {
+  0%   { transform: translate(0px,   0px)   scale(1);   }
+  33%  { transform: translate(-90px, 70px)  scale(1.1); }
+  66%  { transform: translate(80px, -90px)  scale(0.95);}
+  100% { transform: translate(0px,   0px)   scale(1);   }
 }
-@keyframes orb3-move {
-  0%   { transform: translate(0px,  0px)   scale(1);   }
-  50%  { transform: translate(50px, 60px)  scale(1.2); }
-  100% { transform: translate(0px,  0px)   scale(1);   }
-}
-
-/* Single gold orb on html::before — top left, always visible */
-html::before {
-  content: "";
-  position: fixed;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  top: -150px;
-  left: -150px;
-  background: radial-gradient(circle, rgba(196,169,125,0.55) 0%, transparent 65%);
-  filter: blur(60px);
-  animation: orb1-move 18s ease-in-out infinite;
+@keyframes orbDrift3 {
+  0%   { transform: translate(0px,  0px)  scale(1);   }
+  50%  { transform: translate(70px, 80px) scale(1.2); }
+  100% { transform: translate(0px,  0px)  scale(1);   }
 }
 
-/* Extra orbs via fixed divs */
-.bg-orb {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(60px);
+/* Rising particles */
+@keyframes riseUp {
+  0%   { transform: translateY(0)      rotate(0deg);   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.8; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
 }
-.bg-orb-1 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(196,169,125,0.45) 0%, transparent 65%);
-  top: 40%; left: 50%;
-  animation: orb3-move 22s ease-in-out infinite;
+
+/* Rising + swaying (for diamonds) */
+@keyframes riseUpSway {
+  0%   { transform: translateY(0)      rotate(45deg)  translateX(0);    opacity: 0; }
+  10%  { opacity: 1; }
+  30%  { transform: translateY(-30vh)  rotate(135deg) translateX(30px); }
+  60%  { transform: translateY(-60vh)  rotate(225deg) translateX(-20px);}
+  90%  { opacity: 0.7; }
+  100% { transform: translateY(-100vh) rotate(405deg) translateX(0);    opacity: 0; }
 }
-.bg-orb-2 {
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(180,155,110,0.4) 0%, transparent 65%);
-  bottom: 5%; left: 5%;
-  animation: orb1-move 26s ease-in-out infinite reverse;
+
+/* Horizontal streak sweeping left-to-right */
+@keyframes streakAcross {
+  0%   { transform: translateX(0);            opacity: 0; }
+  5%   { opacity: 1; }
+  80%  { opacity: 0.8; }
+  100% { transform: translateX(calc(100vw + 250px)); opacity: 0; }
 }
-.bg-orb-3 {
-  width: 350px; height: 350px;
-  background: radial-gradient(circle, rgba(210,190,155,0.38) 0%, transparent 65%);
-  top: 15%; right: 10%;
-  animation: orb2-move 20s ease-in-out infinite;
+
+/* Twinkling (fade in/out) */
+@keyframes twinkle {
+  0%, 100% { opacity: 0;    transform: scale(1);    }
+  50%       { opacity: 0.9;  transform: scale(1.6);  }
+}
+
+/* Expanding ring pulse */
+@keyframes expandRing {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  100% { transform: scale(5);   opacity: 0;   }
 }
 
 /* ── Grain texture overlay (adds film-like depth) ────────── */

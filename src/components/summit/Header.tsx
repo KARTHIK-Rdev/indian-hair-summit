@@ -22,7 +22,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-xl shadow-sm border-b border-border"
+          ? "bg-white/92 backdrop-blur-xl shadow-sm border-b border-rose-100"
           : "bg-white/5 backdrop-blur-xl border-b border-white/10"
       }`}
     >
@@ -42,7 +42,7 @@ export default function Header() {
               onClick={() => scrollTo(link)}
               className={`text-xs font-bold tracking-widest uppercase transition-colors duration-300 ${
                 scrolled
-                  ? "text-foreground hover:text-foreground/70"
+                  ? "text-foreground hover:text-accent"
                   : "text-white/90 hover:text-white"
               }`}
             >
@@ -56,10 +56,10 @@ export default function Header() {
             href="https://in.bookmyshow.com/events/indian-hair-economy-summit-2026-2nd-editio/ET00495939"
             target="_blank"
             rel="noopener noreferrer"
-            className={`px-6 py-2.5 text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] ${
+            className={`px-6 py-2.5 text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:scale-[1.02] rounded-full ${
               scrolled
-                ? "bg-foreground text-background hover:bg-foreground/90"
-                : "glass-btn text-white hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                ? "bg-accent text-white hover:bg-accent/90 shadow-md"
+                : "bg-white/20 text-white border border-white/30 hover:bg-white/30 backdrop-blur-sm"
             }`}
           >
             Register
